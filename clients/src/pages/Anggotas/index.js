@@ -1,5 +1,5 @@
 import Component from "./component";
-import Action from "./action";
+import Action from "./actions";
 
 const ANGGOTA = {
   Component,

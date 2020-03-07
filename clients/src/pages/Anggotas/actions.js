@@ -4,7 +4,7 @@ import Context from "./context";
 import reducer from "./reducer";
 import { ACTIONS } from "../../constants";
 
-const AnggotaState = props => {
+const AnggotaActions = props => {
   const ref = firebase.firestore().collection("anggota");
 
   const initialState = {
@@ -86,4 +86,4 @@ const AnggotaState = props => {
   );
 };
 
-export default AnggotaState;
+export default AnggotaActions;

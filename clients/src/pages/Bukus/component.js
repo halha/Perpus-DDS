@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react"
-import Table from "../../components/element/Table"
-import bukuContext from "../../reducer/context/bukuContext"
-import { tableColumn } from "../../constants/Table"
-import { TextField } from "@material-ui/core"
-import { makeStyles } from "@material-ui/core/styles"
+import React, { useContext, useEffect } from "react";
+import Table from "../../components/element/Table";
+import bukuContext from "./context";
+import { tableColumn } from "../../constants/Table";
+import { TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyle = makeStyles(theme => ({
   number: {
@@ -19,15 +19,15 @@ const useStyle = makeStyles(theme => ({
     fontSize: 13,
     marginTop: 5
   }
-}))
+}));
 
 const bukus = props => {
-  const Buku = useContext(bukuContext)
-  const { getBuku, data, deleteData, addBuku, editBuku, loading } = Buku
+  const Buku = useContext(bukuContext);
+  const { getBuku, data, deleteData, addBuku, editBuku, loading } = Buku;
   useEffect(() => {
-    getBuku()
-  }, [])
-  const classes = useStyle()
+    getBuku();
+  }, []);
+  const classes = useStyle();
   const columns = [
     {
       title: "Nama Buku",
@@ -70,7 +70,7 @@ const bukus = props => {
       field: "durasi",
       type: "date"
     }
-  ]
+  ];
   if (data) {
     return (
       <div>
@@ -84,9 +84,9 @@ const bukus = props => {
           edit={editBuku}
         />
       </div>
-    )
+    );
   }
-  return <div></div>
-}
+  return <div></div>;
+};
 
-export default bukus
+export default bukus;

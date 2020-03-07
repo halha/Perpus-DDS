@@ -4,7 +4,6 @@ import { pages } from "../pages";
 import Drawer from "../components/element/Drawer";
 import PetugasState from "../reducer/state/PetugasState";
 import PeminjamState from "../reducer/state/PeminjamState";
-import BukuState from "../reducer/state/BukuState";
 export class Routes extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +36,10 @@ export class Routes extends Component {
   _RenderApp() {
     return (
       <Drawer history={this.props.history}>
-        <pages.ANGGOTA.Action>
-          <PetugasState>
-            <BukuState>
-              <PeminjamState>
+        <PeminjamState>
+          <pages.ANGGOTA.Action>
+            <PetugasState>
+              <pages.BUKU.Actions>
                 <Switch>
                   <Redirect
                     from="/login"
@@ -54,13 +53,13 @@ export class Routes extends Component {
                     path="/anggota"
                     component={pages.ANGGOTA.Component}
                   />
-                  <Route exact path="/buku" component={pages.Bukus} />
+                  <Route exact path="/buku" component={pages.BUKU.Component} />
                   <Route component={pages.Error404} />
                 </Switch>
-              </PeminjamState>
-            </BukuState>
-          </PetugasState>
-        </pages.ANGGOTA.Action>
+              </pages.BUKU.Actions>
+            </PetugasState>
+          </pages.ANGGOTA.Action>
+        </PeminjamState>
       </Drawer>
     );
   }

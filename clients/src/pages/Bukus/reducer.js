@@ -1,40 +1,34 @@
-import {
-  GET_BUKU,
-  ADD_BUKU,
-  EDIT_BUKU,
-  DELETE_BUKU,
-  SET_LOADING
-} from "../types"
+import { ACTIONS } from "../../constants";
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_BUKU:
+    case ACTIONS.GET_BUKU:
       return {
         ...state,
         data: action.data,
         loading: false
-      }
-    case DELETE_BUKU:
+      };
+    case ACTIONS.DELETE_BUKU:
       return {
         ...state,
         data: action.data
-      }
-    case ADD_BUKU:
+      };
+    case ACTIONS.ADD_BUKU:
       return {
         ...state,
         data: action.data
-      }
-    case EDIT_BUKU:
+      };
+    case ACTIONS.EDIT_BUKU:
       return {
         ...state,
         data: action.data
-      }
-    case SET_LOADING:
+      };
+    case ACTIONS.SET_LOADING:
       return {
         ...state,
         loading: true
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};

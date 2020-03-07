@@ -3,7 +3,7 @@ import Home from "./Home";
 import Peminjams from "./Peminjams";
 import ANGGOTA from "./Anggotas";
 import Petugases from "./Petugases";
-import Bukus from "./Bukus";
+import BUKU from "./Bukus";
 import Error404 from "./Error404";
 import DummyPage from "./DummyPage";
 
@@ -13,7 +13,7 @@ export const pages = {
   Peminjams,
   ANGGOTA,
   Petugases,
-  Bukus,
+  BUKU,
   Error404,
   DummyPage
 };

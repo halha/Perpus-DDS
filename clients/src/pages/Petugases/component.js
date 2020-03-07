@@ -1,9 +1,10 @@
-import React, { useEffect, useContext } from "react"
-import petugasContext from "../../reducer/context/petugasContext"
-import { tableColumn } from "../../constants/Table"
-import Table from "../../components/element/Table"
-const components = props => {
-  const Petugas = useContext(petugasContext)
+import React, { useEffect, useContext } from "react";
+import Table from "../../components/element/Table";
+import petugasContext from "./context";
+import { tableColumn } from "../../constants/Table";
+
+const component = () => {
+  const Petugas = useContext(petugasContext);
   const {
     petugas,
     getPetugas,
@@ -11,10 +12,10 @@ const components = props => {
     loading,
     editPetugas,
     addPetugas
-  } = Petugas
+  } = Petugas;
   useEffect(() => {
-    getPetugas()
-  }, [])
+    getPetugas();
+  }, []);
   return (
     <div>
       <Table
@@ -27,7 +28,7 @@ const components = props => {
         edit={editPetugas}
       />
     </div>
-  )
-}
+  );
+};
 
-export default components
+export default component;

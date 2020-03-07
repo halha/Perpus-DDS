@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import Table from "../../components/element/Table";
 import peminjamContext from "./context";
+import petugasContext from "../Petugases/context";
 import { tableColumn } from "../../constants/Table";
 
 const component = () => {

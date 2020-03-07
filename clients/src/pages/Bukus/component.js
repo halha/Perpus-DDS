@@ -31,7 +31,8 @@ const bukus = props => {
   const columns = [
     {
       title: "Nama Buku",
-      field: "nm_buku"
+      field: "nm_buku",
+      defaultSort: "asc"
     },
     {
       title: "Pengarang",
@@ -60,7 +61,7 @@ const bukus = props => {
           InputProps={{
             inputProps: { min: 0, max: 9999999999999, className: classes.input }
           }}
-          value={props.value}
+          value={props.value || ""}
           onChange={e => props.onChange(e.target.value)}
         />
       )

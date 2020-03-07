@@ -27,7 +27,6 @@ const component = () => {
       title: "No Pinjam",
       field: "no_pinjam",
       editable: "never",
-      type: "numeric",
       defaultSort: "asc"
     },
     {

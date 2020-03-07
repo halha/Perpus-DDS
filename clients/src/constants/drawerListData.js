@@ -1,5 +1,10 @@
 const drawerListData = [
   {
+    name: "Dashboard",
+    icon: "Dashboard",
+    url: "/"
+  },
+  {
     name: "Peminjaman",
     icon: "Bookmark",
     url: "/peminjam"
@@ -13,7 +18,16 @@ const drawerListData = [
     name: "Petugas",
     icon: "SupervisorAccount",
     url: "/petugas"
+  },
+  {
+    name: "Daftar Buku",
+    icon: "MenuBook",
+    url: "/buku"
+  },
+  {
+    name: "Logout",
+    icon: "ExitToApp"
   }
-];
+]
 
-export default drawerListData;
+export default drawerListData

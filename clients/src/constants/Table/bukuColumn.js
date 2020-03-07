@@ -27,6 +27,6 @@ const bukuColumn = [
     field: "durasi",
     type: "date"
   }
-]
+];
 
-export default bukuColumn
+export default bukuColumn;

@@ -1,27 +1,19 @@
-import Anggota from "./Anggota";
-import Anggotas from "./Anggotas";
-import Peminjam from "./Peminjam";
-import Peminjams from "./Peminjams";
-import Petugas from "./Petugas";
-import Petugases from "./Petugases";
+import Login from "./Login";
 import Home from "./Home";
+import Petugases from "./Petugases";
+import Anggotas from "./Anggotas";
+import Peminjams from "./Peminjams";
+import Bukus from "./Bukus";
 import Error404 from "./Error404";
 import DummyPage from "./DummyPage";
-import Login from "./Login";
-import Register from "./Register";
-import Bukus from "./Bukus";
 
 export const pages = {
-  Home,
-  Error404,
-  Anggota,
-  Anggotas,
-  Peminjam,
-  Peminjams,
-  Petugas,
-  Petugases,
-  DummyPage,
   Login,
-  Register,
-  Bukus
+  Home,
+  Petugases,
+  Anggotas,
+  Peminjams,
+  Bukus,
+  Error404,
+  DummyPage
 };

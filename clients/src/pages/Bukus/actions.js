@@ -36,7 +36,7 @@ const BukuActions = props => {
         nm_buku: doc.data().nm_buku,
         pengarang: doc.data().pengarang,
         penerbit: doc.data().penerbit,
-        tarif: doc.data().tarif,
+        tarif: doc.data().tarif.toString(),
         durasi: doc.data().durasi.toDate()
       }));
       dispatch({
@@ -49,14 +49,14 @@ const BukuActions = props => {
   const addBuku = async newData => {
     setLoading();
     let nData = newData;
+    let tarifInt = parseInt(nData.tarif);
     const newDate = new Date(nData.durasi);
-    console.log(parseInt(nData.tarif));
     await ref
       .add({
         nm_buku: nData.nm_buku,
         pengarang: nData.pengarang,
         penerbit: nData.penerbit,
-        tarif: nData.tarif,
+        tarif: tarifInt,
         durasi: firebase.firestore.Timestamp.fromDate(newDate)
       })
       .then(() => getBuku())
@@ -67,6 +67,7 @@ const BukuActions = props => {
     setLoading();
 
     let nData = newData;
+    let tarifInt = parseInt(nData.tarif);
     const newDate = new Date(nData.durasi);
     await ref
       .doc(oldData.id)
@@ -74,7 +75,7 @@ const BukuActions = props => {
         nm_buku: newData.nm_buku,
         pengarang: newData.pengarang,
         penerbit: newData.penerbit,
-        tarif: newData.tarif,
+        tarif: tarifInt,
         durasi: firebase.firestore.Timestamp.fromDate(newDate)
       })
       .then(() => getBuku())

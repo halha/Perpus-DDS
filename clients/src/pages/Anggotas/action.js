@@ -1,8 +1,8 @@
 import React, { useReducer } from "react";
 import firebase from "../../config/Firebase";
-import anggotaContext from "../context/anggotaContext";
-import anggotaReducer from "../reducer/anggotaReducer";
-import { GET_ANGGOTA, SET_LOADING } from "../types";
+import Context from "./context";
+import reducer from "./reducer";
+import { ACTIONS } from "../../constants";
 
 const AnggotaState = props => {
   const ref = firebase.firestore().collection("anggota");
@@ -12,9 +12,9 @@ const AnggotaState = props => {
     loading: false
   };
 
-  const [state, dispatch] = useReducer(anggotaReducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setLoading = () => dispatch({ type: SET_LOADING });
+  const setLoading = () => dispatch({ type: ACTIONS.SET_LOADING });
 
   const deleteData = async oldData => {
     setLoading();
@@ -36,7 +36,7 @@ const AnggotaState = props => {
         telepon: doc.data().telepon
       }));
       dispatch({
-        type: GET_ANGGOTA,
+        type: ACTIONS.GET_ANGGOTA,
         data: data
       });
     });
@@ -71,7 +71,7 @@ const AnggotaState = props => {
   };
 
   return (
-    <anggotaContext.Provider
+    <Context.Provider
       value={{
         data: state.data,
         loading: state.loading,
@@ -82,7 +82,7 @@ const AnggotaState = props => {
       }}
     >
       {props.children}
-    </anggotaContext.Provider>
+    </Context.Provider>
   );
 };
 

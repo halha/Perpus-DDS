@@ -1,35 +1,34 @@
-import React from "react"
-import { GET_ANGGOTA, SET_LOADING } from "../types"
+import { ACTIONS } from "../../constants";
 
 export default (state, action) => {
   switch (action.type) {
-    case SET_LOADING:
+    case ACTIONS.SET_LOADING:
       return {
         ...state,
         loading: true
-      }
-    case GET_ANGGOTA:
+      };
+    case ACTIONS.GET_ANGGOTA:
       return {
         ...state,
         data: action.data,
         loading: false
-      }
-    case DELETE_ANGGOTA:
+      };
+    case ACTIONS.DELETE_ANGGOTA:
       return {
         ...state,
         data: action.data
-      }
-    case ADD_ANGGOTA:
+      };
+    case ACTIONS.ADD_ANGGOTA:
       return {
         ...state,
         data: action.data
-      }
-    case EDIT_ANGGOTA:
+      };
+    case ACTIONS.EDIT_ANGGOTA:
       return {
         ...state,
         data: action.data
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};

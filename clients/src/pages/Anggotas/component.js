@@ -1,37 +1,35 @@
-import React, { useContext, useEffect } from "react"
-import Table from "../../components/element/Table"
-import anggotaContext from "../../reducer/context/anggotaContext"
-import { tableColumn } from "../../constants/Table"
+import React, { useContext, useEffect } from "react";
+import Table from "../../components/element/Table";
+import anggotaContext from "./context";
+import { tableColumn } from "../../constants/Table";
 
-const component = props => {
-  const Anggota = useContext(anggotaContext)
+const component = () => {
+  const Anggota = useContext(anggotaContext);
   const {
-    getAnggota,
     data,
-    deleteData,
+    getAnggota,
     addAnggota,
     editAnggota,
+    deleteData,
     loading
-  } = Anggota
+  } = Anggota;
   useEffect(() => {
-    getAnggota()
-  }, [])
+    getAnggota();
+  }, []);
   if (data) {
     return (
-      <div>
-        <Table
-          title="Anggota"
-          columns={tableColumn.AnggotaColumn}
-          data={data}
-          delete={deleteData}
-          add={addAnggota}
-          edit={editAnggota}
-          loading={loading}
-        />
-      </div>
-    )
+      <Table
+        title="Anggota"
+        columns={tableColumn.AnggotaColumn}
+        data={data}
+        delete={deleteData}
+        add={addAnggota}
+        edit={editAnggota}
+        loading={loading}
+      />
+    );
   }
-  return <div className=""></div>
-}
+  return <div></div>;
+};
 
-export default component
+export default component;

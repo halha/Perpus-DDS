@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { pages } from "../pages";
 import Drawer from "../components/element/Drawer";
-import AnggotaState from "../reducer/state/AnggotaState";
 import PetugasState from "../reducer/state/PetugasState";
 import PeminjamState from "../reducer/state/PeminjamState";
 import BukuState from "../reducer/state/BukuState";
@@ -38,7 +37,7 @@ export class Routes extends Component {
   _RenderApp() {
     return (
       <Drawer history={this.props.history}>
-        <AnggotaState>
+        <pages.ANGGOTA.Action>
           <PetugasState>
             <BukuState>
               <PeminjamState>
@@ -50,14 +49,18 @@ export class Routes extends Component {
                   <Route exact path="/" component={pages.Home} />
                   <Route exact path="/peminjam" component={pages.Peminjams} />
                   <Route exact path="/petugas" component={pages.Petugases} />
-                  <Route exact path="/anggota" component={pages.Anggotas} />
+                  <Route
+                    exact
+                    path="/anggota"
+                    component={pages.ANGGOTA.Component}
+                  />
                   <Route exact path="/buku" component={pages.Bukus} />
                   <Route component={pages.Error404} />
                 </Switch>
               </PeminjamState>
             </BukuState>
           </PetugasState>
-        </AnggotaState>
+        </pages.ANGGOTA.Action>
       </Drawer>
     );
   }

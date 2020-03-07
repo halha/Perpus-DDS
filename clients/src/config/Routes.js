@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { pages } from "../pages";
 import Drawer from "../components/element/Drawer";
-import PetugasState from "../reducer/state/PetugasState";
+import PetugasState from "../pages/Petugases/PetugasState";
 export class Routes extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +36,7 @@ export class Routes extends Component {
     return (
       <Drawer history={this.props.history}>
         <pages.PEMINJAM.Actions>
-          <pages.ANGGOTA.Action>
+          <pages.ANGGOTA.Actions>
             <PetugasState>
               <pages.BUKU.Actions>
                 <Switch>
@@ -61,7 +61,7 @@ export class Routes extends Component {
                 </Switch>
               </pages.BUKU.Actions>
             </PetugasState>
-          </pages.ANGGOTA.Action>
+          </pages.ANGGOTA.Actions>
         </pages.PEMINJAM.Actions>
       </Drawer>
     );

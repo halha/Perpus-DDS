@@ -1,9 +1,9 @@
 import Component from "./component";
-import Action from "./actions";
+import Actions from "./actions";
 
 const ANGGOTA = {
   Component,
-  Action
+  Actions
 };
 
 export default ANGGOTA;

@@ -1,9 +1,9 @@
-import React from "react"
-import Title from "../../components/element/Title"
-import Order from "../../components/element/Order"
-import Copyright from "../../components/element/Copyright"
-import clsx from "clsx"
-import { makeStyles } from "@material-ui/core/styles"
+import React from "react";
+import Title from "../../components/element/Title";
+import Order from "../../components/element/Order";
+import Copyright from "../../components/element/Copyright";
+import clsx from "clsx";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Grid,
   Typography,
@@ -11,7 +11,7 @@ import {
   Container,
   Paper,
   Link
-} from "@material-ui/core"
+} from "@material-ui/core";
 
 const useStyle = makeStyles(theme => ({
   paper: {
@@ -30,13 +30,13 @@ const useStyle = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    height: "100vh",
+    height: "auto",
     overflow: "hidden"
   }
-}))
+}));
 
 const Blah = props => {
-  const classes = useStyle()
+  const classes = useStyle();
   return (
     <React.Fragment>
       <Typography component="h2" variant="h6" color="primary" gutterBottom>
@@ -51,13 +51,13 @@ const Blah = props => {
         </Link>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 const component = props => {
-  const classes = useStyle()
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
-  const date = new Date().toDateString()
+  const classes = useStyle();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const date = new Date().toDateString();
   return (
     <main className={classes.content}>
       <Container maxWidth="lg">
@@ -110,7 +110,7 @@ const component = props => {
         </Box>
       </Container>
     </main>
-  )
-}
+  );
+};
 
-export default component
+export default component;

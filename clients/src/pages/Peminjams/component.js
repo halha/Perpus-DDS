@@ -1,10 +1,11 @@
-import React, { useContext, useEffect } from "react"
-import pinjamContext from "../../reducer/context/peminjamContext"
-import Table from "../../components/element/Table"
-import petugasContext from "../../reducer/context/petugasContext"
+import React, { useContext, useEffect } from "react";
+import Table from "../../components/element/Table";
+import peminjamContext from "./context";
+import { tableColumn } from "../../constants/Table";
+
 const component = () => {
-  const context = useContext(pinjamContext)
-  const petugasContextes = useContext(petugasContext)
+  const context = useContext(peminjamContext);
+  const petugasContextes = useContext(petugasContext);
   const {
     peminjam,
     getPinjam,
@@ -14,12 +15,12 @@ const component = () => {
     editPeminjam,
     addPeminjam,
     deletePeminjam
-  } = context
-  const { petugas, getPetugas, getPetugasNama, nama } = petugasContextes
+  } = context;
+  const { petugas, getPetugas, getPetugasNama, nama } = petugasContextes;
 
   useEffect(() => {
-    getPinjam(), getPetugas(), getPetugasNama(), getNamaAnggota()
-  }, [])
+    getPinjam(), getPetugas(), getPetugasNama(), getNamaAnggota();
+  }, []);
   const column = [
     {
       title: "No Pinjam",
@@ -43,20 +44,18 @@ const component = () => {
       field: "tgl_pinjam",
       type: "datetime"
     }
-  ]
+  ];
   return (
-    <div>
-      <Table
-        title="Peminjam"
-        data={peminjam}
-        loading={loading}
-        columns={column}
-        edit={editPeminjam}
-        add={addPeminjam}
-        delete={deletePeminjam}
-      />
-    </div>
-  )
-}
+    <Table
+      title="Peminjam"
+      data={peminjam}
+      loading={loading}
+      columns={column}
+      edit={editPeminjam}
+      add={addPeminjam}
+      delete={deletePeminjam}
+    />
+  );
+};
 
-export default component
+export default component;

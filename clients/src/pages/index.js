@@ -1,6 +1,6 @@
 import Login from "./Login";
 import Home from "./Home";
-import Peminjams from "./Peminjams";
+import PEMINJAM from "./Peminjams";
 import ANGGOTA from "./Anggotas";
 import Petugases from "./Petugases";
 import BUKU from "./Bukus";
@@ -10,7 +10,7 @@ import DummyPage from "./DummyPage";
 export const pages = {
   Login,
   Home,
-  Peminjams,
+  PEMINJAM,
   ANGGOTA,
   Petugases,
   BUKU,

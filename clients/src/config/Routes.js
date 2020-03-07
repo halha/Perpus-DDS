@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { pages } from "../pages";
 import Drawer from "../components/element/Drawer";
 import PetugasState from "../reducer/state/PetugasState";
-import PeminjamState from "../reducer/state/PeminjamState";
 export class Routes extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,7 @@ export class Routes extends Component {
   _RenderApp() {
     return (
       <Drawer history={this.props.history}>
-        <PeminjamState>
+        <pages.PEMINJAM.Actions>
           <pages.ANGGOTA.Action>
             <PetugasState>
               <pages.BUKU.Actions>
@@ -46,7 +45,11 @@ export class Routes extends Component {
                     to={this.state.lastPath ? this.state.lastPath : "/"}
                   />
                   <Route exact path="/" component={pages.Home} />
-                  <Route exact path="/peminjam" component={pages.Peminjams} />
+                  <Route
+                    exact
+                    path="/peminjam"
+                    component={pages.PEMINJAM.Component}
+                  />
                   <Route exact path="/petugas" component={pages.Petugases} />
                   <Route
                     exact
@@ -59,7 +62,7 @@ export class Routes extends Component {
               </pages.BUKU.Actions>
             </PetugasState>
           </pages.ANGGOTA.Action>
-        </PeminjamState>
+        </pages.PEMINJAM.Actions>
       </Drawer>
     );
   }

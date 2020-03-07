@@ -1,25 +1,25 @@
-import { GET_PEMINJAM, SET_LOADING, GET_NAMA_ANGGOTA } from "../types"
+import { ACTIONS } from "../../constants";
 
 export default (state, action) => {
   switch (action.type) {
-    case GET_NAMA_ANGGOTA:
+    case ACTIONS.GET_NAMA_ANGGOTA:
       return {
         ...state,
         loading: false,
         nama: action.data
-      }
-    case SET_LOADING:
+      };
+    case ACTIONS.SET_LOADING:
       return {
         ...state,
         loading: true
-      }
-    case GET_PEMINJAM:
+      };
+    case ACTIONS.GET_PEMINJAM:
       return {
         ...state,
         peminjam: action.data,
         loading: false
-      }
+      };
     default:
-      return state
+      return state;
   }
-}
+};

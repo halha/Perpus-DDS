@@ -16,7 +16,18 @@ const getAnggota = async (req, res) => {
   sendResponse(await getData());
 };
 
+const postAnggota = async (req, res) => {
+  const params = req.body;
+  const insert = async () => queryHandler.postAnggota(params);
+  const sendResponse = async (result) => {
+    (result.err) ? wrapper.response(res, 'fail', result, 'Anggota', httpError.NOT_FOUND)
+      : wrapper.response(res, 'success', result, 'Anggota', http.OK);
+  };
+  sendResponse(await insert());
+};
+
 
 module.exports = {
-  getAnggota
+  getAnggota,
+  postAnggota
 };

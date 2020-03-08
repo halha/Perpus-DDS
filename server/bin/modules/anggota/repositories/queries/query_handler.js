@@ -14,9 +14,9 @@ const getAnggota = async () => {
   return result;
 };
 
-const postAnggota = async () => {
+const postAnggota = async (params) => {
   const Anggota = async () => {
-    const result = await anggota.postPeranggotaan();
+    const result = await anggota.postPeranggotaan(params);
     return result;
   };
   const result = await Anggota();

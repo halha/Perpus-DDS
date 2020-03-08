@@ -9,7 +9,7 @@ class Anggota {
   }
 
   /**
-   * @desc GET METHOD
+   * @desc GET, POST METHOD
    */
 
   async viewAnggota() {
@@ -22,12 +22,12 @@ class Anggota {
     return wrapper.data(anggota);
   }
 
-  async postPeranggotaan() {
-    const anggota = await this.query.postAnggota();
-    wrapper.data(anggota);
+  async postPeranggotaan(params) {
+    const anggota = await this.query.postAnggota(params);
+    console.info(anggota);
 
     if (anggota.err) {
-      return wrapper.error(new Error('Tidak bisa masukan data baharu'))
+      return wrapper.error(new Error('Tidak bisa masukan data baharu'));
     }
     return wrapper.data(anggota);
   }

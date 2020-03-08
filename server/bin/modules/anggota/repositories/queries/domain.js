@@ -14,14 +14,24 @@ class Anggota {
 
   async viewAnggota() {
     const anggota = await this.query.getAnggota();
+    wrapper.data(anggota);
+
     if (anggota.err) {
       return wrapper.error(new NotFoundError('Data petugas tidak ada'));
     }
     return wrapper.data(anggota);
   }
 
+  async postPeranggotaan() {
+    const anggota = await this.query.postAnggota();
+    wrapper.data(anggota);
+
+    if (anggota.err) {
+      return wrapper.error(new Error('Tidak bisa masukan data baharu'))
+    }
+    return wrapper.data(anggota);
+  }
+
 }
 
-module.exports = {
-  Anggota
-};
+module.exports = Anggota;

@@ -4,7 +4,7 @@ class Query {
     this.db = db;
   }
 
-  async getAnggota() {
+  async getAnggota(parameter) {
     const record = await this.db.query('SELECT * from anggota');
     return record;
   }
@@ -12,6 +12,4 @@ class Query {
   async 
 }
 
-module.exports = {
-  Query
-};
+module.exports = Query;

@@ -14,6 +14,16 @@ const getAnggota = async () => {
   return result;
 };
 
+const postAnggota = async () => {
+  const Anggota = async () => {
+    const result = await anggota.postPeranggotaan();
+    return result;
+  };
+  const result = await Anggota();
+  return result;
+};
+
 module.exports = { 
-  getAnggota 
+  getAnggota,
+  postAnggota
 };

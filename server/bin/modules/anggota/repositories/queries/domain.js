@@ -11,9 +11,9 @@ class Anggota {
   /**
    * @desc GET METHOD
    */
-  
+
   async viewAnggota() {
-    const anggota = await this.query.getData();
+    const anggota = await this.query.getAnggota();
     if (anggota.err) {
       return wrapper.error(new NotFoundError('Data petugas tidak ada'));
     }
@@ -22,4 +22,6 @@ class Anggota {
 
 }
 
-module.exports = Anggota;
+module.exports = {
+  Anggota
+};

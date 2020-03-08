@@ -6,12 +6,14 @@ const db = new Sql(config.get('/mysqlConfig'));
 const anggota = new Anggota(db);
 
 const getAnggota = async () => {
-  const getAnggota = async () => {
+  const Anggota = async () => {
     const result = await anggota.viewAnggota();
     return result;
   };
-  const result = await getAnggota();
+  const result = await Anggota();
   return result;
 };
 
-module.exports = getAnggota;
+module.exports = { 
+  getAnggota 
+};

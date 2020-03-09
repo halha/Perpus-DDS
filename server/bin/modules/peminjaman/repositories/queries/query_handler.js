@@ -13,26 +13,47 @@ const getPeminjaman = async () => {
   return result;
 };
 
-const getPeminjamanById = async parameter => {
+const getPeminjamanById = async id => {
   const Data = async () => {
-    const result = await halo.viewPeminjamanById(parameter);
+    const result = await halo.viewPeminjamanById(id);
     return result;
   };
   const result = await Data();
   return result;
 };
 
-const postPeminjaman = async parameter => {
+const postPeminjaman = async body => {
   const Data = async () => {
-    const result = await halo.insertPeminjaman(parameter);
+    const result = await halo.insertPeminjaman(body);
     return result;
   };
   const result = await Data();
   return result;
 };
+
+const deletePeminjaman = async id => {
+  const Data = async () => {
+    const result = await halo.deletePeminjaman(id);
+    return result;
+  };
+  const result = await Data();
+  return result;
+};
+
+const updatePeminjaman = async data => {
+  const Data = async () => {
+    const result = await halo.updatePeminjaman(data);
+    return result;
+  };
+  const result = await Data();
+  return result;
+};
+
 
 module.exports = {
   getPeminjaman,
   getPeminjamanById,
-  postPeminjaman
+  postPeminjaman,
+  deletePeminjaman,
+  updatePeminjaman
 };

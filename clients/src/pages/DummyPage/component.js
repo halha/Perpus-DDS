@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Table from "../../components/element/Table";
 import { tableColumn } from "../../constants/Table";
-import { anggota } from "../../function/anggotaFunction";
 
 export class component extends Component {
   render() {

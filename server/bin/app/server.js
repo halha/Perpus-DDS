@@ -53,6 +53,10 @@ function AppServer() {
     basicAuth.isAuthenticated,
     anggotaHandler.getAnggota
   );
+  this.server.post('/anggota',
+    basicAuth.isAuthenticated,
+    anggotaHandler.postAnggota
+  );
   this.server.get('/anggota/:userId',
     basicAuth.isAuthenticated,
     anggotaHandler.getAnggota

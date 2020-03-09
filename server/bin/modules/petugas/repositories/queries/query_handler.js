@@ -32,9 +32,9 @@ const addData = async (data) => {
   return result;
 };
 
-const deleteData = async (userId) => {
+const deleteData = async (data) => {
   const deleteData = async () => {
-    const result = await petugas.deletePetugas(userId);
+    const result = await petugas.deletePetugas(data);
     return result;
   };
   const result = await deleteData();

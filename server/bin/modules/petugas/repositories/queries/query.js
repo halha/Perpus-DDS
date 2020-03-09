@@ -19,25 +19,25 @@ class Query {
     const recordset = await this.db.query(
       `INSERT INTO petugas (nm_petugas,jabatan,tlpn_petugas,email_petugas,ps_petugas) 
     VALUES ('` +
-        data.nm_petugas +
-        `','` +
-        data.jabatan +
-        `','` +
-        data.tlpn_petugas +
-        `','` +
-        data.email_petugas +
-        `','` +
-        data.ps_petugas +
-        `')`
+      data.nm_petugas +
+      `','` +
+      data.jabatan +
+      `','` +
+      data.tlpn_petugas +
+      `','` +
+      data.email_petugas +
+      `','` +
+      data.ps_petugas +
+      `')`
     );
     console.log(recordset);
 
     return recordset;
   }
 
-  async deletePetugas(userId) {
+  async deletePetugas(data) {
     const recordset = await this.db.query(
-      `DELETE FROM petugas WHERE kd_petugas = ` + "'" + userId + "'"
+      `DELETE FROM petugas WHERE kd_petugas = ` + "'" + data.kd_petugas + "'"
     );
     console.log(recordset);
 
@@ -49,22 +49,22 @@ class Query {
     const recordset = await this.db.query(
       `UPDATE petugas SET 
       nm_petugas='` +
-        data.nm_petugas +
-        `', 
+      data.nm_petugas +
+      `', 
       jabatan='` +
-        data.jabatan +
-        `',
+      data.jabatan +
+      `',
       tlpn_petugas='` +
-        data.tlpn_petugas +
-        `',
+      data.tlpn_petugas +
+      `',
       email_petugas='` +
-        data.email_petugas +
-        `',
+      data.email_petugas +
+      `',
       ps_petugas='` +
-        data.ps_petugas +
-        `' WHERE kd_petugas='` +
-        data.kd +
-        `'`
+      data.ps_petugas +
+      `' WHERE kd_petugas='` +
+      data.kd_petugas +
+      `'`
     );
     console.log(recordset);
 

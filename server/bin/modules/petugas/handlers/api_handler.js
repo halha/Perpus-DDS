@@ -13,19 +13,19 @@ const addPetugas = async (req, res) => {
   const sendResponse = async result => {
     result.err
       ? wrapper.response(
-          res,
-          "fail",
-          result,
-          "Get List Petugas",
-          httpError.NOT_FOUND
-        )
+        res,
+        "fail",
+        result,
+        "Get List Petugas",
+        httpError.NOT_FOUND
+      )
       : wrapper.response(
-          res,
-          "success",
-          result,
-          "Your Request Has Been Processed",
-          http.OK
-        );
+        res,
+        "success",
+        result,
+        "Your Request Has Been Processed",
+        http.OK
+      );
   };
   sendResponse(await addPetugas());
 };
@@ -35,91 +35,89 @@ const getPetugas = async (req, res) => {
   const sendResponse = async result => {
     result.err
       ? wrapper.response(
-          res,
-          "fail",
-          result,
-          "Get List Petugas",
-          httpError.NOT_FOUND
-        )
+        res,
+        "fail",
+        result,
+        "Get List Petugas",
+        httpError.NOT_FOUND
+      )
       : wrapper.response(
-          res,
-          "success",
-          result,
-          "Your Request Has Been Processed",
-          http.OK
-        );
+        res,
+        "success",
+        result,
+        "Your Request Has Been Processed",
+        http.OK
+      );
   };
   sendResponse(await getData());
 };
 
 const getPetugasId = async (req, res) => {
-  const { userId } = req.params;
-  const getData = async () => queryHandler.getDatabyId(userId);
+  const data = req.params.userId;
+  const getData = async () => queryHandler.getDatabyId(data);
   const sendResponse = async result => {
     result.err
       ? wrapper.response(
-          res,
-          "fail",
-          result,
-          "Get List Petugas",
-          httpError.NOT_FOUND
-        )
+        res,
+        "fail",
+        result,
+        "Get List Petugas",
+        httpError.NOT_FOUND
+      )
       : wrapper.response(
-          res,
-          "success",
-          result,
-          "Your Request Has Been Processed",
-          http.OK
-        );
+        res,
+        "success",
+        result,
+        "Your Request Has Been Processed",
+        http.OK
+      );
   };
   sendResponse(await getData());
 };
 
 const deletePetugas = async (req, res) => {
-  const { userId } = req.body;
-  const deletePetugas = async () => queryHandler.deleteData(userId);
+  const body = req.body;
+  const deletePetugas = async () => queryHandler.deleteData(body);
   const sendResponse = async result => {
     result.err
       ? wrapper.response(
-          res,
-          "fail",
-          result,
-          "Get List Petugas",
-          httpError.NOT_FOUND
-        )
+        res,
+        "fail",
+        result,
+        "Get List Petugas",
+        httpError.NOT_FOUND
+      )
       : wrapper.response(
-          res,
-          "success",
-          result,
-          "Your Request Has Been Processed",
-          http.OK
-        );
+        res,
+        "success",
+        result,
+        "Your Request Has Been Processed",
+        http.OK
+      );
   };
   sendResponse(await deletePetugas());
 };
 
 const updatePetugas = async (req, res) => {
-  const { userId } = req.params,
-    data = ({} = req.body);
-  data.kd = userId;
+  const body = req.body
 
-  const updatePetugas = async () => queryHandler.updateData(data);
+  const updatePetugas = async () => queryHandler.updateData(body);
   const sendResponse = async result => {
     result.err
       ? wrapper.response(
-          res,
-          "fail",
-          result,
-          "Get List Petugas",
-          httpError.NOT_FOUND
-        )
+        res,
+        "fail",
+        result,
+        "Get List Petugas",
+        httpError.NOT_FOUND
+      )
       : wrapper.response(
-          res,
-          "success",
-          result,
-          "Your Request Has Been Processed",
-          http.OK
-        );
+        res,
+        "success",
+        result,
+        "Your Request Has Been Processed",
+        http.OK
+      );
   };
   sendResponse(await updatePetugas());
 };

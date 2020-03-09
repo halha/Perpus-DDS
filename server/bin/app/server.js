@@ -93,12 +93,12 @@ function AppServer() {
     basicAuth.isAuthenticated,
     peminjamanHandler.addPeminjaman
   );
-  this.server.del('/peminjaman/:id', 
-    basicAuth.isAuthenticated, 
+  this.server.del('/peminjaman/:id',
+    basicAuth.isAuthenticated,
     peminjamanHandler.deletePeminjaman
   );
-  this.server.put('/peminjaman/:id', 
-    basicAuth.isAuthenticated, 
+  this.server.put('/peminjaman/:id',
+    basicAuth.isAuthenticated,
     peminjamanHandler.updatePeminjaman
   );
 
@@ -116,19 +116,19 @@ function AppServer() {
   );
 
   this.server.post(
-    "/petugas/add",
+    "/petugas",
     basicAuth.isAuthenticated,
     petugasHandler.addPetugas
   );
 
   this.server.del(
-    "/petugas/delete/:userId",
+    "/petugas",
     basicAuth.isAuthenticated,
     petugasHandler.deletePetugas
   );
 
   this.server.put(
-    "/petugas/update/:userId",
+    "/petugas",
     basicAuth.isAuthenticated,
     petugasHandler.updatePetugas
   );

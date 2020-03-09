@@ -113,10 +113,16 @@ function AppServer() {
     petugasHandler.addPetugas
   );
 
-  this.server.post(
+  this.server.del(
     "/petugas/delete/:userId",
     basicAuth.isAuthenticated,
     petugasHandler.deletePetugas
+  );
+
+  this.server.put(
+    "/petugas/update/:userId",
+    basicAuth.isAuthenticated,
+    petugasHandler.updatePetugas
   );
 }
 

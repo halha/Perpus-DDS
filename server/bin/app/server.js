@@ -5,10 +5,10 @@ const basicAuth = require("../auth/basic_auth_helper");
 const jwtAuth = require("../auth/jwt_auth_helper");
 const wrapper = require("../helpers/utils/wrapper");
 
-const anggotaHandler = require('../modules/anggota/handlers/api_handler');
-const peminjamanHandler = require('../modules/peminjaman/handlers/api_handler')
-const petugasHandler = require('../modules/petugas/handlers/api_handler')
-const cobaHandler = require('../modules/modulCoba/handlers/api_handler');
+const anggotaHandler = require("../modules/anggota/handlers/api_handler");
+const peminjamanHandler = require("../modules/peminjaman/handlers/api_handler");
+const petugasHandler = require("../modules/petugas/handlers/api_handler");
+const cobaHandler = require("../modules/modulCoba/handlers/api_handler");
 
 function AppServer() {
   this.server = restify.createServer({
@@ -89,10 +89,26 @@ function AppServer() {
   // this.server.get('/peminjaman', basicAuth.isAuthenticated, anggotaHandler.getAnggota);
 
   // PETUGAS
-  this.server.get('/petugas', basicAuth.isAuthenticated, petugasHandler.getPetugas);
-  this.server.post('/petugas/add', basicAuth.isAuthenticated, petugasHandler.addPetugas);
-  this.server.post('/petugas/delete/:userId', basicAuth.isAuthenticated, petugasHandler.deletePetugas);
-  this.server.post('/petugas/update/:userId', basicAuth.isAuthenticated, petugasHandler.updatePetugas);
+  this.server.get(
+    "/petugas",
+    basicAuth.isAuthenticated,
+    petugasHandler.getPetugas
+  );
+  this.server.post(
+    "/petugas/add",
+    basicAuth.isAuthenticated,
+    petugasHandler.addPetugas
+  );
+  this.server.post(
+    "/petugas/delete/:userId",
+    basicAuth.isAuthenticated,
+    petugasHandler.deletePetugas
+  );
+  this.server.post(
+    "/petugas/update/:userId",
+    basicAuth.isAuthenticated,
+    petugasHandler.updatePetugas
+  );
 }
 
 module.exports = AppServer;

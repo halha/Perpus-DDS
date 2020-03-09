@@ -17,8 +17,8 @@ class Halo {
     return wrapper.data(user);
   }
 
-  async viewPeminjamanById(parameter) {
-    const user = await this.query.getPeminjamanById(parameter);
+  async viewPeminjamanById(id) {
+    const user = await this.query.getPeminjamanById(id);
     // console.log(user)
     if (user.err) {
       return wrapper.error(new NotFoundError("Can not find list project"));
@@ -26,14 +26,33 @@ class Halo {
     return wrapper.data(user);
   }
 
-  async insertPeminjaman(parameter) {
-    const user = await this.query.postPeminjaman(parameter);
+  async insertPeminjaman(body) {
+    const user = await this.query.postPeminjaman(body);
     console.log(user);
     if (user.err) {
       return wrapper.error(new NotFoundError("Can not find list project"));
     }
     return wrapper.data(user);
   }
+
+  async deletePeminjaman(id) {
+    const user = await this.query.deletePeminjaman(id);
+    console.log(user);
+    if (user.err) {
+      return wrapper.error(new NotFoundError("Can not find list project"))
+    }
+    return wrapper.data(user);
+  }
+
+  async updatePeminjaman(data) {
+    const user = await this.query.updatePeminjaman(data);
+    console.log(user);
+    if (user.err) {
+      return wrapper.error(new NotFoundError("Can not find list project"))
+    }
+    return wrapper.data(user);
+  }
+
 }
 
 module.exports = Halo;

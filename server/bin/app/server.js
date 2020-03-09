@@ -93,6 +93,14 @@ function AppServer() {
     basicAuth.isAuthenticated,
     peminjamanHandler.addPeminjaman
   );
+  this.server.del('/peminjaman/:id', 
+    basicAuth.isAuthenticated, 
+    peminjamanHandler.deletePeminjaman
+  );
+  this.server.put('/peminjaman/:id', 
+    basicAuth.isAuthenticated, 
+    peminjamanHandler.updatePeminjaman
+  );
 
   // PETUGAS
   this.server.get(

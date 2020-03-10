@@ -1,33 +1,41 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import clsx from "clsx"
-import { makeStyles, useTheme } from "@material-ui/core/styles"
-import Drawer from "@material-ui/core/Drawer"
-import CssBaseline from "@material-ui/core/CssBaseline"
-import AppBar from "@material-ui/core/AppBar"
-import Toolbar from "@material-ui/core/Toolbar"
-import List from "@material-ui/core/List"
-import Typography from "@material-ui/core/Typography"
-import Divider from "@material-ui/core/Divider"
-import IconButton from "@material-ui/core/IconButton"
-import MenuIcon from "@material-ui/icons/Menu"
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
-import ChevronRightIcon from "@material-ui/icons/ChevronRight"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import GroupIcon from "@material-ui/icons/Group"
-import BookmarkIcon from "@material-ui/icons/Bookmark"
-import drawerListData from "../../../constants/drawerListData"
-import MenuBookIcon from "@material-ui/icons/MenuBook"
-import ExitToAppIcon from "@material-ui/icons/ExitToApp"
-import HomeIcon from "@material-ui/icons/HomeRounded"
+import React from "react";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import List from "@material-ui/core/List";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import GroupIcon from "@material-ui/icons/Group";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import drawerListData from "../../../constants/drawerListData";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import HomeIcon from "@material-ui/icons/HomeRounded";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
-const drawerWidth = 240
+const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex"
+  },
+  topNav: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    flexDirection: "row-reverse"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -91,31 +99,31 @@ const useStyles = makeStyles(theme => ({
   listItem: {
     color: "#fff"
   }
-}))
+}));
 
 export default function component(props) {
-  const classes = useStyles()
-  const theme = useTheme()
-  const [open, setOpen] = React.useState(true)
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleDrawerClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   const logOut = e => {
-    e.preventDefault()
-    localStorage.setItem("Login", false)
-    localStorage.removeItem("lastPath")
-    window.location.reload()
-  }
+    e.preventDefault();
+    localStorage.setItem("Login", false);
+    localStorage.removeItem("lastPath");
+    window.location.reload();
+  };
 
   const setCurrentPath = path => {
-    localStorage.setItem("lastPath", path)
-  }
+    localStorage.setItem("lastPath", path);
+  };
 
   return (
     <div className={classes.root}>
@@ -139,13 +147,16 @@ export default function component(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            className={clsx(open && classes.hide)}
-          >
-            Perpustakaan DDS
-          </Typography>
+          <div className={classes.topNav}>
+            <AccountCircleIcon fontSize="large" />
+            <Typography
+              variant="h6"
+              noWrap
+              className={clsx(open && classes.hide)}
+            >
+              Perpustakaan DDS
+            </Typography>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -182,8 +193,8 @@ export default function component(props) {
                   button
                   key={index}
                   onClick={e => {
-                    e.preventDefault
-                    setCurrentPath(item.url)
+                    e.preventDefault;
+                    setCurrentPath(item.url);
                   }}
                   component={Link}
                   to={item.url}
@@ -196,15 +207,15 @@ export default function component(props) {
                     className={classes.listItem}
                   />
                 </ListItem>
-              )
+              );
             } else if (index < 4 && index > 0) {
               return (
                 <ListItem
                   button
                   key={index}
                   onClick={e => {
-                    e.preventDefault
-                    setCurrentPath(item.url)
+                    e.preventDefault;
+                    setCurrentPath(item.url);
                   }}
                   component={Link}
                   to={item.url}
@@ -221,15 +232,15 @@ export default function component(props) {
                     className={classes.listItem}
                   />
                 </ListItem>
-              )
+              );
             } else if (index === 4) {
               return (
                 <ListItem
                   button
                   key={index}
                   onClick={e => {
-                    e.preventDefault
-                    setCurrentPath(item.url)
+                    e.preventDefault;
+                    setCurrentPath(item.url);
                   }}
                   component={Link}
                   to={item.url}
@@ -242,7 +253,7 @@ export default function component(props) {
                     className={classes.listItem}
                   />
                 </ListItem>
-              )
+              );
             } else {
               return (
                 <div key={index}>
@@ -257,7 +268,7 @@ export default function component(props) {
                     />
                   </ListItem>
                 </div>
-              )
+              );
             }
           })}
         </List>
@@ -267,5 +278,5 @@ export default function component(props) {
         {props.children}
       </main>
     </div>
-  )
+  );
 }

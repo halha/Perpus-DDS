@@ -3,6 +3,7 @@ import firebase from "../../config/Firebase";
 import Context from "./context";
 import reducer from "./reducer";
 import { ACTIONS } from "../../constants";
+import axios from "axios";
 
 const AnggotaActions = props => {
   const ref = firebase.firestore().collection("anggota");
@@ -27,19 +28,31 @@ const AnggotaActions = props => {
 
   const getAnggota = async () => {
     setLoading();
-    await ref.get().then(querySnapshot => {
-      const data = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        kode_anggota: doc.data().kode_anggota,
-        nama_anggota: doc.data().nama_anggota,
-        alamat: doc.data().alamat,
-        telepon: doc.data().telepon
-      }));
-      dispatch({
-        type: ACTIONS.GET_ANGGOTA,
-        data: data
-      });
+    const res = await axios.get("http://localhost:9000/anggota", {
+      auth: {
+        username: "telkom",
+        password: "moklet"
+      }
     });
+    console.log(res.data.data.data);
+    const data = res.data.data.data;
+    dispatch({
+      type: ACTIONS.GET_ANGGOTA,
+      data: data
+    });
+    // await ref.get().then(querySnapshot => {
+    //   const data = querySnapshot.docs.map(doc => ({
+    //     id: doc.id,
+    //     kode_anggota: doc.data().kode_anggota,
+    //     nama_anggota: doc.data().nama_anggota,
+    //     alamat: doc.data().alamat,
+    //     telepon: doc.data().telepon
+    //   }));
+    //   dispatch({
+    //     type: ACTIONS.GET_ANGGOTA,
+    //     data: data
+    //   });
+    // });
   };
 
   const addAnggota = async newData => {

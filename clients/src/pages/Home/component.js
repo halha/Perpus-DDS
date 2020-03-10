@@ -4,15 +4,8 @@ import Order from "../../components/element/Order";
 import Copyright from "../../components/element/Copyright";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  Grid,
-  Typography,
-  Box,
-  Container,
-  Paper,
-  Link
-} from "@material-ui/core";
-
+import { Grid, Typography, Box, Container, Paper } from "@material-ui/core";
+import { Link } from "react-router-dom";
 const useStyle = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
@@ -47,7 +40,7 @@ const Blah = props => {
         {props.jumlah}
       </Typography>
       <div>
-        <Link color="primary" href={props.url}>
+        <Link color="primary" to={props.url}>
           Lihat lebih
         </Link>
       </div>

@@ -1,13 +1,13 @@
 const anggotaColumn = [
   {
     title: "Kode Anggota",
-    field: "kode_anggota",
+    field: "kd_anggota",
     editable: "never",
     defaultSort: "asc"
   },
   {
     title: "Nama Anggota",
-    field: "nama_anggota"
+    field: "nm_anggota"
   },
   {
     title: "Alamat",
@@ -15,7 +15,7 @@ const anggotaColumn = [
   },
   {
     title: "Telepon",
-    field: "telepon",
+    field: "tlpn",
     type: "numeric"
   }
 ];

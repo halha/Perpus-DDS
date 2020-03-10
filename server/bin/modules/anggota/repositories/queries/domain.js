@@ -9,7 +9,7 @@ class Anggota {
   }
 
   /**
-   * @desc GET, POST METHOD
+   * @desc GET, POST, UPDATE, VIEW ID, DELETE METHOD
    */
 
   async viewAnggota() {
@@ -17,7 +17,17 @@ class Anggota {
     wrapper.data(anggota);
 
     if (anggota.err) {
-      return wrapper.error(new NotFoundError('Data petugas tidak ada'));
+      return wrapper.error(new NotFoundError('Data anggota tidak ada'));
+    }
+    return wrapper.data(anggota);
+  }
+
+  async viewAnggotaId(id) {
+    const anggota = await this.query.getAnggotaId(id);
+    wrapper.data(anggota);
+
+    if (anggota.err) {
+      return wrapper.error(new NotFoundError('Data anggota tidak ada'));
     }
     return wrapper.data(anggota);
   }
@@ -28,6 +38,26 @@ class Anggota {
 
     if (anggota.err) {
       return wrapper.error(new Error('Tidak bisa masukan data baharu'));
+    }
+    return wrapper.data(anggota);
+  }
+
+  async deletePeranggotaan(id) {
+    const anggota = await this.query.deleteAnggota(id);
+    console.info(anggota);
+
+    if (anggota.err) {
+      return wrapper.error(new Error('Tidak bisa hapus data anggota'));
+    }
+    return wrapper.data(anggota);
+  }
+
+  async updatePeranggotaan(data) {
+    const anggota = await this.query.updateAnggota(data);
+    console.info(anggota);
+
+    if (anggota.err) {
+      return wrapper.error(new Error('Tidak bisa apdet data anggota'));
     }
     return wrapper.data(anggota);
   }

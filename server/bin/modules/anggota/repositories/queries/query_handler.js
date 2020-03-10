@@ -14,6 +14,15 @@ const getAnggota = async () => {
   return result;
 };
 
+const getAnggotaId = async (id) => {
+  const Anggota = async () => {
+    const result = await anggota.viewAnggotaId(id);
+    return result;
+  };
+  const result = await Anggota();
+  return result;
+};
+
 const postAnggota = async (params) => {
   const Anggota = async () => {
     const result = await anggota.postPeranggotaan(params);
@@ -23,7 +32,28 @@ const postAnggota = async (params) => {
   return result;
 };
 
+const deleteAnggota = async (id) => {
+  const Anggota = async () => {
+    const result = await anggota.deletePeranggotaan(id);
+    return result;
+  };
+  const result = await Anggota();
+  return result;
+};
+
+const updateAnggota = async (data) => {
+  const Anggota = async () => {
+    const result = await anggota.updatePeranggotaan(data);
+    return result;
+  };
+  const result = await Anggota();
+  return result;
+};
+
 module.exports = { 
   getAnggota,
-  postAnggota
+  postAnggota,
+  getAnggotaId,
+  deleteAnggota,
+  updateAnggota
 };
